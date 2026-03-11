@@ -1,0 +1,7 @@
+{
+  "name": "SpeakHarvest",
+  "description": "A voice-first, multilingual agritech marketplace connecting Indian farmers and buyers with AI-powered translation and insights.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

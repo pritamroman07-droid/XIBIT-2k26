@@ -1,0 +1,880 @@
+/* ======================================
+   SpeakHarvest – Premium UI System
+   ====================================== */
+
+/* --- Reset & Base --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    overflow-x: hidden;
+    overscroll-behavior-y: contain;
+}
+
+/* Smooth transitions on all interactive elements */
+button,
+a,
+input,
+select,
+textarea {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Cursor Styles --- */
+button,
+a,
+[role="button"],
+.cursor-pointer,
+label[for] {
+    cursor: pointer;
+}
+
+button:disabled,
+.disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+input,
+textarea {
+    cursor: text;
+}
+
+input[type="file"] {
+    cursor: pointer;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* --- Text Selection --- */
+::selection {
+    background: rgba(16, 185, 129, 0.2);
+    color: #065f46;
+}
+
+::-moz-selection {
+    background: rgba(16, 185, 129, 0.2);
+    color: #065f46;
+}
+
+/* --- Smooth Scrolling for all containers --- */
+.overflow-y-auto,
+.overflow-y-scroll,
+.overflow-x-auto {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* --- Image Polish --- */
+img {
+    image-rendering: auto;
+    -webkit-user-drag: none;
+    user-select: none;
+    transition: opacity 0.3s ease;
+}
+
+img[src] {
+    opacity: 1;
+}
+
+img:not([src]),
+img[src=""] {
+    opacity: 0;
+}
+
+/* --- Keyframe Animations --- */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    70% {
+        transform: scale(1.03);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    50% {
+        opacity: 0.9;
+        transform: scale(1.05);
+    }
+
+    70% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes pulse-soft {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+@keyframes gradient-shift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes subtle-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+    }
+}
+
+/* --- Animation Utility Classes --- */
+
+.animate-fade-in {
+    animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-fade-in-down {
+    animation: fadeInDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-slide-up {
+    animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-slide-right {
+    animation: slideInRight 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-slide-left {
+    animation: slideInLeft 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-pop-in {
+    animation: popIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-bounce-in {
+    animation: bounceIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-modal {
+    animation: modalSlideUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.animate-subtle-pulse {
+    animation: subtle-pulse 2s ease-in-out infinite;
+}
+
+/* --- Stagger Delays (for lists/grids) --- */
+.stagger-1 {
+    animation-delay: 0.05s;
+}
+
+.stagger-2 {
+    animation-delay: 0.1s;
+}
+
+.stagger-3 {
+    animation-delay: 0.15s;
+}
+
+.stagger-4 {
+    animation-delay: 0.2s;
+}
+
+.stagger-5 {
+    animation-delay: 0.25s;
+}
+
+.stagger-6 {
+    animation-delay: 0.3s;
+}
+
+.stagger-7 {
+    animation-delay: 0.35s;
+}
+
+.stagger-8 {
+    animation-delay: 0.4s;
+}
+
+.stagger-9 {
+    animation-delay: 0.45s;
+}
+
+/* --- Interactive Hover Effects --- */
+
+/* Card lift effect */
+.hover-lift {
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.12),
+        0 4px 10px -2px rgba(0, 0, 0, 0.06);
+}
+
+.hover-lift:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.1);
+    transition-duration: 0.1s;
+}
+
+/* Subtle scale on tap/click */
+.press-scale {
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.press-scale:active {
+    transform: scale(0.96);
+}
+
+/* Glow effect for primary buttons */
+.hover-glow {
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.35);
+    transform: translateY(-1px);
+}
+
+/* --- Page Transitions --- */
+.page-enter {
+    animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* --- Chat Message Animations --- */
+.msg-in {
+    animation: slideInLeft 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.msg-out {
+    animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* --- Glassmorphism Utility --- */
+.glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-dark {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- Smooth Scrollbar --- */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.12);
+    border-radius: 100px;
+    transition: background 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.12) transparent;
+}
+
+/* --- Focus Styles (Accessibility + Premium) --- */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+    border-color: #10b981 !important;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* Focus visible for keyboard users */
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible {
+    outline: 2px solid #10b981;
+    outline-offset: 2px;
+    border-radius: 8px;
+}
+
+/* --- Input Polish --- */
+input::placeholder,
+textarea::placeholder {
+    color: #9ca3af;
+    transition: opacity 0.2s ease;
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+    opacity: 0.5;
+}
+
+/* --- Button Base Polish --- */
+button {
+    position: relative;
+    overflow: hidden;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Ripple effect on buttons with .btn-ripple */
+.btn-ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+}
+
+.btn-ripple:active::after {
+    animation: ripple 0.5s ease-out;
+}
+
+/* --- Card Styles --- */
+.card {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04),
+        0 1px 2px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08),
+        0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* --- Badge / Tag --- */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+}
+
+/* --- Divider --- */
+.divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.08), transparent);
+    margin: 16px 0;
+}
+
+/* --- Loading Skeleton --- */
+.skeleton {
+    background: linear-gradient(90deg, #e5e7eb 25%, #d1d5db 50%, #e5e7eb 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+    border-radius: 8px;
+}
+
+/* --- Loading Spinner --- */
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-top-color: #10b981;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* --- Gradient Text --- */
+.gradient-text {
+    background: linear-gradient(135deg, #059669, #10b981, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* --- Gradient backgrounds --- */
+.gradient-emerald {
+    background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%);
+}
+
+/* --- Tooltip --- */
+.tooltip {
+    position: relative;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) scale(0.9);
+    padding: 6px 10px;
+    background: #1f2937;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
+/* --- Mobile-Specific Optimizations --- */
+@media (max-width: 640px) {
+
+    /* Larger tap targets on mobile */
+    button,
+    a,
+    [role="button"] {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    /* Prevent zoom on input focus (iOS) */
+    input,
+    select,
+    textarea {
+        font-size: 16px !important;
+    }
+
+    /* Hide hover effects on mobile (touch devices) */
+    @media (hover: none) {
+        .hover-lift:hover {
+            transform: none;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .hover-glow:hover {
+            box-shadow: none;
+            transform: none;
+        }
+    }
+}
+
+/* --- Reduced Motion Preference --- */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* --- Print Styles --- */
+@media print {
+
+    .fixed,
+    .sticky {
+        position: relative !important;
+    }
+
+    button,
+    .no-print {
+        display: none !important;
+    }
+}
+
+/* ======================================
+   THEME TRANSITION ANIMATION
+   ====================================== */
+
+/* The circular reveal overlay */
+.theme-transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 55;
+    pointer-events: none;
+    background-color: var(--overlay-color, #111827);
+    clip-path: circle(0px at var(--cx, 50%) var(--cy, 50%));
+    opacity: 0;
+    will-change: clip-path, opacity;
+}
+
+.theme-transition-overlay.theme-transition-active {
+    animation: theme-reveal 800ms ease-in-out forwards;
+}
+
+@keyframes theme-reveal {
+    0% {
+        opacity: 1;
+        clip-path: circle(0px at var(--cx) var(--cy));
+    }
+
+    45% {
+        opacity: 1;
+        clip-path: circle(var(--max-r) at var(--cx) var(--cy));
+    }
+
+    55% {
+        opacity: 1;
+        clip-path: circle(var(--max-r) at var(--cx) var(--cy));
+    }
+
+    100% {
+        opacity: 0;
+        clip-path: circle(var(--max-r) at var(--cx) var(--cy));
+    }
+}
+
+/* ======================================
+   DARK MODE OVERRIDES
+   ====================================== */
+
+/* Smooth theme transition on containers */
+body,
+div,
+header,
+main,
+section,
+nav,
+aside,
+footer,
+button,
+a,
+input,
+select,
+textarea,
+label,
+span,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.15s ease;
+}
+
+html.dark body {
+    background-color: #111827;
+    color: #e5e7eb;
+}
+
+/* Dark hover-glow */
+html.dark .hover-glow:hover {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.25),
+        0 0 40px rgba(16, 185, 129, 0.1);
+}
+
+/* Dark scrollbar */
+html.dark ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+html.dark * {
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+/* Dark focus */
+html.dark input:focus,
+html.dark select:focus,
+html.dark textarea:focus {
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+    border-color: #10b981 !important;
+}
+
+/* Dark text selection */
+html.dark ::selection {
+    background: rgba(16, 185, 129, 0.35);
+    color: #d1fae5;
+}
+
+html.dark ::-moz-selection {
+    background: rgba(16, 185, 129, 0.35);
+    color: #d1fae5;
+}
+
+/* Dark glassmorphism */
+html.dark .glass {
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html.dark .glass-dark {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Dark skeleton */
+html.dark .skeleton {
+    background: linear-gradient(90deg, #1f2937 25%, #374151 50%, #1f2937 75%);
+    background-size: 200% 100%;
+}
+
+/* Dark hover-lift shadow */
+html.dark .hover-lift:hover {
+    box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.4),
+        0 4px 10px -2px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark card */
+html.dark .card {
+    background: #1f2937;
+    border-color: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+html.dark .card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Dark shimmer */
+html.dark .animate-shimmer {
+    background: linear-gradient(90deg, #1f2937 25%, #374151 50%, #1f2937 75%);
+    background-size: 200% 100%;
+}
+
+/* Dark placeholder */
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+    color: #6b7280;
+}
+
+/* Dark tooltip */
+html.dark .tooltip::after {
+    background: #e5e7eb;
+    color: #111827;
+}
