@@ -380,6 +380,11 @@ img[src=""] {
     animation: wiggle 0.3s ease-in-out infinite;
 }
 
+.group:hover .group-hover-wiggle {
+    animation: wiggle 0.3s ease-in-out infinite;
+    display: inline-block;
+}
+
 /* --- Stagger Delays (for lists/grids) --- */
 .stagger-1 {
     animation-delay: 0.05s;

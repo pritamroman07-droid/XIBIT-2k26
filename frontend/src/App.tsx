@@ -162,7 +162,10 @@ const App: React.FC = () => {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-900 transition-colors">
         <div className="absolute top-4 right-4"><ThemeToggle /></div>
-        <h1 className="text-3xl font-bold mb-8 text-gray-800 dark:text-gray-100 animate-fade-in-up">Select Language / भाषा चुनें</h1>
+        <h1 className="text-4xl font-extrabold mb-8 animate-fade-in-up flex flex-wrap justify-center gap-2">
+          <span className="gradient-text">Select Language</span>
+          <span className="text-gray-800 dark:text-gray-100">/ भाषा चुनें</span>
+        </h1>
         <div className="animate-fade-in-up" style={{ animationDelay: '0.15s' }}>
           <LanguageSelector onSelect={handleLangSelect} />
         </div>
@@ -174,15 +177,15 @@ const App: React.FC = () => {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-900 p-6 transition-colors">
         <div className="absolute top-4 right-4"><ThemeToggle /></div>
-        <h1 className="text-2xl font-bold mb-8 text-center animate-fade-in-up dark:text-gray-100">{t('whoAreYou')}</h1>
+        <h1 className="text-3xl font-extrabold mb-8 text-center animate-fade-in-up gradient-text">{t('whoAreYou')}</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-lg">
-          <button onClick={() => handleRoleSelect('farmer')} className="bg-emerald-100 dark:bg-emerald-900/40 border-2 border-emerald-500 p-8 rounded-2xl flex flex-col items-center hover:bg-emerald-200 dark:hover:bg-emerald-900/60 transition-colors hover-lift press-scale animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-            <span className="text-4xl mb-2">🧑‍🌾</span>
+          <button onClick={() => handleRoleSelect('farmer')} className="group bg-emerald-100 dark:bg-emerald-900/40 border-2 border-emerald-500 p-8 rounded-2xl flex flex-col items-center hover:bg-emerald-200 dark:hover:bg-emerald-900/60 transition-colors hover-lift press-scale animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+            <span className="text-4xl mb-2 group-hover-wiggle transition-transform">🧑‍🌾</span>
             <span className="text-xl font-bold text-emerald-900 dark:text-emerald-300">{t('roleFarmer')}</span>
             <span className="text-sm text-emerald-700 dark:text-emerald-400">{t('sellCropsDesc')}</span>
           </button>
-          <button onClick={() => handleRoleSelect('buyer')} className="bg-blue-100 dark:bg-blue-900/40 border-2 border-blue-500 p-8 rounded-2xl flex flex-col items-center hover:bg-blue-200 dark:hover:bg-blue-900/60 transition-colors hover-lift press-scale animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <span className="text-4xl mb-2">🏢</span>
+          <button onClick={() => handleRoleSelect('buyer')} className="group bg-blue-100 dark:bg-blue-900/40 border-2 border-blue-500 p-8 rounded-2xl flex flex-col items-center hover:bg-blue-200 dark:hover:bg-blue-900/60 transition-colors hover-lift press-scale animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <span className="text-4xl mb-2 group-hover-wiggle transition-transform">🏢</span>
             <span className="text-xl font-bold text-blue-900 dark:text-blue-300">{t('roleBuyer')}</span>
             <span className="text-sm text-blue-700 dark:text-blue-400">{t('buyCropsDesc')}</span>
           </button>

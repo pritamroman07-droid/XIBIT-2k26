@@ -63,7 +63,7 @@ const LiveAssistant: React.FC<LiveAssistantProps> = ({ systemInstruction, initia
         className={`
           pointer-events-auto
           h-16 w-16 rounded-full shadow-xl flex items-center justify-center transition-all duration-300 animate-bounce-in
-          ${isActive ? 'bg-red-500 hover:bg-red-600 scale-110' : 'bg-emerald-600 hover:bg-emerald-700 hover-glow'}
+          ${isActive ? 'bg-red-500 hover:bg-red-600 scale-110' : 'bg-emerald-600 hover:bg-emerald-700 hover-glow animate-float'}
         `}
       >
         {isActive ? (
